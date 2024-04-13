@@ -1,0 +1,38 @@
+How to create a multiple users and adding pasword to the users 
+ to create a multiple user, first of all we can create a file on opt directory /opt 
+ for example;
+ sudo touch /opt/user umf
+ vim into the user umf file from your home directory with;
+ vim /opt/user umf , enter the names of the users you want to create when you are done entering the names of the users you want to ctreate, press esc key to get on command mode the enter 
+ ":w !sudo tee %" it will start loading the files press enter twice to then it will bring you back to vim normal text editor where you can save the file normally or with esc :q!
+ to confirm the input of the file sudo cat /opt/user umf
+  after creating the users ill run a while loop the command for this is 
+ "for i in `cat /opt/user umf` ; do sudo useradd $i ; done 
+ to verify the users you created run this command 
+ "for i in `cat /opt/user umf` ; do sudo id $i ; done"
+ to assign password to the users the command for that is 
+ "for i in `cat /opt/user umf` ; do sudo passwd $i ; done"
+ 
+ this will create multiple users assign password to them and also identify the users
+ 
+ vim webfixhttpd.sh
+ date
+sudo ls /var/run/httpd.pid &> /dev/null
+if [ $? -eq 0 ]
+then
+  echo "Httpd process is currently running."
+else
+  echo "Httpd process is Not running."
+  echo "Starting the process"
+sudo systemctl start httpd
+if [ $? -eq 0 ]
+then
+  echo "process started successfully."
+else
+  echo "process starting failed, contact the admin."
+fi
+fi
+  echo "we are good to go"
+
+ 
+ 

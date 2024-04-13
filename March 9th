@@ -1,0 +1,140 @@
+=================================================================================================================:
+
+                                        MARCH 9TH
+
+=================================================================================================================:
+
+            Multi-line Comments: Multi-line comments are typically used in programming languages to add explanatory notes or 
+ disable certain blocks of code temporarily. The syntax for multi-line comments varies between languages. for example, this is the multi-line comments syntax for bash scripts is : <<coments after inputing your comments, this have to end with the same word it started with comments. and you don't have to put greater than sign.
+           
+
+   comments2.sh
+#!/bin/bash
+echo "Multi-line comments start"
+<<martin
+This script welcome DevOps Engineers to SeariseTech Event
+If you are not a SeariseTech member please don't show up at the event
+Even date and time will be communicated to all members later on
+martin
+echo "Multi-line comments ends"
+date
+pwd
+whoami
+id martin
+
+
+            Single-line comments: A single line cooment is a type of comment in 
+programming that spans only one line of code. it is typically used to add explanatory notes, reminders, or disable specific lines of code temporarily without affecting the functionality of the program. 
+
+      use cases for comments
+multi-line comments = 5%
+single-line comments = 95%
+
+
+     Variables: Variables in scripting languages like Bash, Python, and 
+JavaScript are used to store and manipulate data within a program.
+=========================================================================
+
+    we have User-defined variables and System-defined variable, we can refer or call a variable with $variable
+
+ *User-defined variables= UDV: are created and defined by users or programmers within their scripts or programs
+      Users define these variables according to their specific needs and requirements.
+ examples include: variables used to store user input, intermediate calculation results, or configurations within a script.
+ 
+ *System-defined variables= SDV: are predefined and built into the operating system or programming language environment.
+      They are typically set by the system or language environment and used for various system operations or internal 
+  processes.
+examples include environmental variables like PATH which define the directories to search for executable files, or language-specific variables like argv in C, which holds command-line arguments passed to a program. run command "env"
+
+      the difference lies in who defines the variables and their intended purposes. User-defined variables are created by users or programmers for specific tasks, while system-defined variables are predefined by the system or language environment for system-level or internal operations.         
+
+
+*In Bash scripting variables are defined simply by assigning a value to a name without any special declaration syntax.
+
+*In Python, Variables are defined similarly by assigning a value to a name
+
+*In JavaScript, variables are declared using the var,let, or const keywords:
+
+
+                   Using variables in scripting: 
+==========================================================================:    
+
+*echo $USER: this bash variable tells you what user is logged in the system
+
+*echo "Good morning $USER how are you doing today?" calling a variable from the 
+       command line
+
+ls -al /home/martin : this command lists all hidden files in the user martin                   
+==============================================================================
+ How to call a variables in bash scripting:
+   $variableName 
+   ${variableName}
+
+       var1.sh 
+#!/bin/bash         
+name=martin
+cpy=SeariseTech
+echo "Good morning" $name"
+echo "Good morning ${name}"
+echo "Welcome to $cpy"
+echo "Welcome to ${cpy}"
+
+===============================================================================
+name=martin   
+title=DevOps
+company=SeariseTech
+echo "There is a guy called $name a $title at $company they just hired him last week" 
+        this is temporary variable, if the system shutsdown this variable will 
+disappear.        
+
+$HISTSIZE: is an environmental variable, that determines the number of commands to be stored in the command history list for the current session.
+       it specifies the maximum number of commands that can be saved in the history list. users can adjust this value, to 
+ increase or decrease the number of commands stored in the history list. to temporarily change the HISTSIZE on the command line is "export HISTSIZE=2000" this increases the value, you can do the same to decrease the value and to confirm "echo $HISTSIZE" 
+    the default size for $HISTSIZE IS 10000  
+
+ you can permanently change the HISTIZE too, by editing the "vi.bashrc" file and adding "export HISTSIZE=2000" under the first line, after making this changes, source .bashrc to refresh it and apply the new value. run ls -al command and you'll see .bashrc the vi into .bashrc and and add export HISTSIZE=2000 under the firtst line in the file.
+
+ export class=DevOpsMasterClass
+ echo $class
+ 
+ we can define more environmental variables on the .bashrc, and always source the file before trying to use the variable you defined.
+
+export class=DevOpsMasterClassclass
+
+you can call variables like this on your CLI after you vi into .bashrc and export class name as DevOpsMasterClass and it will replace class with the name you chose
+echo "$class ends at 1:30 pm EST today"
+ echo "I am a student of $class"
+ ========================================================================================
+ lets write a script using the environmental variable var2.sh
+ #!/bin/bah
+ name=martin
+ city=Landover
+ cpy=SeariseTech
+ cit=Largo
+ echo "My name is $name"
+ echo "I live at $city"
+ echo "I work with $cpy located at $cit Maryland USA"
+
+ and you can outcode this same script as long as you updated your .bashrc
+ you can run this same script different to get to the same answer
+
+ name var3.sh
+
+ echo "My name is $name"
+ echo "I live at $city"
+ echo "I work with $cpy located at $cit Maryland USA"
+=====================================================================================================
+this is how you run an atm card automation in a script.
+ #!/bin/bash
+ # This script will authenticate bank users
+ # You must have the right credentials to use this script
+ echo "Good Morning"
+ echo "Please enter your name"
+ read name
+ echo "$name, Welcome to BankOfAmerica"
+ echo "Please enter your card"
+ sleep 10
+ echo "Please enter your pin"
+ read pin
+ echo "You are authenticated."
+ echo "Thanks for banking with us"

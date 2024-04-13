@@ -1,0 +1,243 @@
+===========================================================================:
+
+               FEBRUARY 24 2024
+
+============================================================================:               
+
+File Security / Permissions: 
+
+who can access a file? 
+   
+   owner
+   groupowner 
+   others
+
+Access Levels:
+  
+   read    = r = 4
+   write   = w = 2 
+   execute = x = 1  
+
+
+
+
+                       Regular Users                         Root Users
+                    Files     Dir                        Files       Dir
+
+Full Persmission    0666      0777                       0666        0777
+Default Permission  0644      0755                       0644        0755
+                    ====      ====                       ====        ====            
+umask               0022      0022                       0022        0022                       
+
+we get the umask value from subtracting the full permission numbers from default permission numbers 
+
+and we can always change the umask value if we run umask 0044 command on our terminal.
+when you change the umask value,it will change the permission type for the directory you creating 
+
+example of a directory created with the default umask value 0022
+drwxr-xr-x. 2 ec2-user ec2-user   6 Feb 26 01:24 perm
+  
+example of a directory created on a umask value thats been changed to 0044
+
+drwx-wx-wx. 2 ec2-user ec2-user   6 Feb 26 01:28 perm2
+
+
+Types of files:
+   
+   - = file
+   d = directory
+   l = soft or hard links
+
+
+
+Fields for files:
+  
+  1) types of files, it can be a regular FILE= - or a DIRECTORY= d or a LINK= l
+
+  2) perrmissions, r= READ= which means you can look at the file contents. W= write= which means you can change or delete or delete the file and x= EXECUTE= which means you can run the file as a program.
+
+  3) Number of links: shows number of soft or hard LINKS.
+
+  4) Owner
+
+  5) Group Owner of the file.
+
+  6) Size of the file in Bytes
+
+  7) Date and Time of creation 
+
+  8) File name or Directory name or Links Name.
+
+
+ type.   permissions.   links.   owner.    groupowner.   file size.    date & time created.   file/directory/links name
+   -       rw-r--r--.     1      ec2-user   ec2-user         109          Feb 24 07:03             mylist.txt  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         l
+   d       rwxr-xr-x.     2      ec2-user   ec2-user          76          Feb 24 07:44             searisetech  
+   
+   l       rwxrwxrwx.     1      ec2-user   ec2-user          11          Feb 24 08:52          goals.txt -> mystudy.txt
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       l
+How do we set permissions on a file and what commands do we use ???
+the commands we use to change permission or manage permissions on a file are= 
+*chmod = change modification. ==all you need to do is set the number of the permission 
+to change to default permison on a directory the comman to run is chmod 0755 name of directory.
+
+*chown: to change owner of a directory it has to be done as a root user or you can use elevated access to run this.
+and the commannd to change owner of a directory is "sudo chown name of the owner your are trying to change the directory name to:name of group and the name of the file you are trying to change ownership of" practically the command sudo prof:ec2-user perm2.
+     we can use *chown* to to change the group and the owner of the file the command to do that is "sudo chown name :username of group name of file" this changes both the ownership and the group.
+
+*chgrp = sudo chgrp name of group you want to change it to and name of directory, "sudo chgrp engineers perm2"
+
+before you can change a group you'll have to make sure the group already exist or you create the group if you dont have one in your directories.
+to create a group, the command for that is "sudo groupadd engineers "  this is how you create a group sudo groupadd and the name of the group you want to create. and to verify the group you crteated you run the command *cat /etc/group or to see the last groups you craeted if you don't want to see all, *tail -5 /etc/group*
+
+grep: = grep is the real heavy weight for searching, finding filtering tool, grep heps find words in a file or folder.
+        example grep word or text and file or directory path
+
+    incase you have issues with case sensitivity you can run *grep -i to ignore case sensitivity.
+
+    and if we are looking for texts that has the alphabbet a in in a file we can run this command:= cat list.txt | grep a
+
+    whats thw differnce between pipe and grep
+
+Pipe | = is an output redirection. pipes allows output of one command to the input of another command
+
+grep = grep is the real heavy weight for searching, finding filtering tool, grep heps find words in a file or folder.
+        example grep word or text and file or directory path.  
+
+when you are working as a DevOps Engineer, you always have to make sure your time is up to date, so updates you made don carry a different time zone. you can always check by runnimg *date* on your terminal to check if its up to date and if its not you can run this coomand to see the time zones you can choose from *timedatectl list-timezones* this will show you a long list of the whole timezone world wide, you can grep for the time zone you're looking for *timedatectl list-timezones | grep New_York closest to us which will give us ths output *America/New_York* to change the time zone to this New York time zone the command for that is * sudo timedatectl set-timezone "America/New_York" to confirm the changes< you can run *date* on your terminal.
+
+
+    User Management: 
+================================
+
+
+User/group Management: 
+
+====================================
+
+root user = The root user is the administrator or admin user superuser that can run all commands and tasks unrestricted, 
+            he has unrestricted access into files, etc.
+
+In Linux the root user is called = root 
+root user is created by system when a server is Launched/Created.
+
+Normal Users: Are created by the administartors [root user]
+
+sudo groupadd = will create groups
+
+sudo adduser  = will create a user in a linux server
+
+sudo useradd  = will craete a user in a linux server
+ 
+to verify which group a user is in "id username" 
+
+ls -l /home/ : shows us every user we created in the system
+
+sudo cat /etc/passwd : is a different way to see all the users you created in your server, because every user stored in /etc/passwd
+
+grep Martins /etc/passwd : shows the user information too
+
+ll /home/
+
+to set a password for a user: the command is "sudo passwd username" and this will prompt you to put a password for the user tho when you are putting in the password yo cant see it.
+
+sudo useradd Martins && sudo passwd && tail -2 /etc/passwd : this creates a user with a password 
+
+to create multiple users: 
+sudo useradd John && sudo useradd Jerry && sudo useradd Tony && sudo useradd Ann  
+
+same way if you want to create multiple groups at the same time 
+
+sudo groupadd Engineers && sudo groupad DevOps && sudo groupadd Linux ; tail -4 /etc/group  this checks the last 4 lines on the /etc/group list to confirm the groups was actually created.
+
+delete users:
+sudo userdel Dathy = will delete user's account account without the home directory.
+
+sudo userdel -r Dathy = this will delete users account with the users home directory.
+
+task0002:
+
+    Create groups:                          | Add users listed below to "DevOps"
+ command to create group is                 |command to add user : sudo usermod -aG groupname space username 
+   "sudo groupadd space groupname"          |                               |
+  Engineers                                 |Git
+  DevOps                                    |Maven
+  Linux                                     |aws
+  Accounting                                |gcp
+  Administrators                            |mgc
+  Business-Owners                           |
+  Project-Managers                          |
+  Developer                                 |add users listed below to group "Administrators"
+  Application-Teams                         |
+                                            |
+    Create users:                           |Dathy
+  command to create users:                  |toyota
+   "sudo useradd space username"            |kunle
+  Paul                    Alexi             |Jimmy
+  John                    Simon             |Rebecca
+  Peter                   Sophia            |Maven
+  James                   Karren            |
+  Tita                    Solomon           |add users listed below to "Project-Managers"
+  Pefok                   Dathy             |
+  Linux                   Kunle             |Alexi
+  Windows                 Jimmy             |Simon
+  Git                     Rebecca           |Sophia
+  Maven                                     |Karren
+  aws                                       |Solomon
+  mgc                                       |
+  toyota                                    |
+
+======================================================================:
+
+                      FEBRUARY 28 2024
+
+======================================================================:
+
+Granting Privileges to users: 
+
+   User Management :
+
+creating users accounts : sudo useradd Martins
+
+Assign password to users: sudo passwd Martins
+
+Creating groups and add user to a group: groupadd groupname, for example "sudo groupadd Engineers"
+                                         sudo usermod -aG Engineers Martins
+
+Modify users account: usermod
+                      groupadd
+                      chmod to change users mode 
+                      chown to change users ownership
+these are the tools we need to modify users.
+                      
+Delete users: sudo userdel Martins to delete users incase they retire or gets fired or user resigns.
+
+Elevate user's privileges: sudo vi/etc/sudoers or sudo visudo
+                           Grant sudo access to Martins
+                           sudo echo "Martins ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/Martins
+
+lock and unlock users account: passwd -l Martins = to unlock account == passwd -uf Martins =to unlock account
+                                                              
+
+Reset users password: most times people put in the wrong password couple of times and gets locked out, its our responsibility to have a set direction for them to  reset their password
+
+Set expiration date for users account/password : some companies you'll have to change your password every 90 days is our job to set expiration date to their login password to sign into the company you manage their users for.
+
+To set expiration on users password the command is: sudo chage username
+                                        sudo chage Martins
+
+      Minimum Password Age [0]: 0
+        Maximum Password Age [99999]: 90
+        Last Password Change (YYYY-MM-DD) [2024-03-01]:
+        Password Expiration Warning [7]: 10
+        Password Inactive [-1]: 10
+        Account Expiration Date (YYYY-MM-DD) [-1]: 90                                    
+
+Assign task to users.
+
+grant and remove admin/sudo privilleges
+
+   Elevated User's Priviledges:
+
+/etc/sudoers
+sudo cat /etc/sudoers 

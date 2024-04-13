@@ -1,0 +1,43 @@
+  
+  Git Interview Question and Answers and commands:
+  
+ 1* How to Create a git repository and what happens once you create a repository :->
+   To create a git repository or to initialize a git repository, you use the command called "git init"
+   and once you use git it, ".git" folder will be created in the directory, and .git repository helps us to
+   manage our project effectively.
+   
+ 2* What is the reason we use GIT? :->
+    git provides us versioning which allows users to track and manage changes overtime making it easier to
+	understand the evolution of the item and to revert to previous versions if necessary
+	using "git add" to track and stage files and "git commit" to commit staged files
+	and using "git push" to push all entire code to your github.
+	
+ 3* What is the git workflow that you can use in your organization:->
+    i used "git add && git commit -m "commit message" && git push" these are the commands i use to
+    facilitate my workflow day-in day-out in my organisation. 	
+	
+ 4* How do you pull a code from github to your local terminal? :->
+    We use command "git clone <url>" to pull a code from the github.
+	
+ 5* How do you clone your code? :-> 
+    clone is a process to download our code from GitHub using HTTPS or SSH.
+	
+ 6* Whats the difference between Clone and Fork? :->
+    A "clone" creates an exact copy of a repository, including all of its history, branches, and commits.
+    It's typically used in centralized version control system like Git.
+
+    On the other hand, a "fork" also creates a copy of a repository, but its more commonly used in 
+	distributed version control systems like GitHub. When you fork a repository on GitHub, you're creating 
+    a copy in your own GitHub account, which you can then modify independently. Forks arae often used 
+    for contributing to open-source projects or experimenting with changes without affecting the original
+    repository.
+	
+	*Clone is used to download a specific repository while fork is used to create a copy of a repository.
+
+ 7* Whats the difference between "git merge and git rebase"? :->
+    Git merge keeps the commit sequence intact by combining the histories of two branches into a single branch.
+    Git rebase on the other hand, rewrites history by putting changes from one branch at the begining of another 
+    resulting in a more organized, linear project history. 	
+    
+ 	
+	

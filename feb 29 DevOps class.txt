@@ -1,0 +1,155 @@
+======================================================================:
+
+                     FEBRUARY 29 2024
+
+======================================================================:                    
+
+    SYSTEM MANAGEMENT COMMANDS:  
+
+  whoami : it prints the username associated with your current session.
+
+  whatis : this is helpful for understanding the purpose or function of a command or program. 
+           for example "whatis ls"
+
+  whereis : it provides path/location of the executable binary, source code and manual page associated with that command.
+            for example "whereis ls"
+
+  top : its a powerful tool for monitoring system performance and identifying resource-intensive processes, 
+        is a system command for troubleshooting tool, when you run top command in a terminal, it continously updates the displayed information, providing insights into system activity.
+
+  kill : it is used to kill any unwanted process in the system.
+  
+  date : print or set the system date and time.
+
+  df  : shows you the disk partition or display file system disk.
+
+  hostname : will show you the hostname of the system.
+
+  uname : shows the operating system name.
+
+  ifconfig : this will show you all network interfaces along with their respective details.
+
+  cat /etc/os-release : used to display information about the operating system distribution installed on linux system.
+
+  w : shows who is currently logged in, such as their username, terminal, remote host, login time, idle time, cpu usage
+      and more.
+
+ free -m : this will display the memory information.
+ 
+ curl ifconfig.me : this retrieves your public ip address using the service provided by ifconfig.me.
+
+ curl : the curl command is a powerful tool used to transfer data to or from a server using various supported
+        protocols such as "HTTP, HTTPS, FTP, SCP, SFTP" and more, it is commonly used in scripts and terminal sessions to automate file transfers, download files or interact with web services.
+
+ ps - ef : this command is used to display information about currently running processes on a unix-like system, including
+          their process ID (PID), parent process ID (PPID)' user CPU and memory usage and command executed.
+
+ bg   =: "bg" stands for "background". when you run a command followed by "&" at the end, it runs in the background, 
+         allowing you to continue using the terminal for other tasks. You can also use the "bg" command to move a job thats currently suspended or stopped into the background, allowing it to continue executing. 
+
+fg  =:  "fg" stands for "foreground". it is a command used to bring a background job to the foreground, meaning it will 
+         start receiving input and output from the terminal again. This command is useful when you have sent a job to the background using "&" and want to interact with it directly.
+ 
+ jobs : jobs command is used to display a list of currently active jobs running in the background of the current 
+        shell sessions.          
+ 
+ wget : the wget command is a powerful utility used to download files from the web. it supports
+        downloading files via HTTP,HTTPS and FTP protocols . example "wget hhtps://example.com/example.zip "                              
+
+yum : the yum command is a package management utility' it allows users to install, update, remove and manage software
+      packages.
+
+rpm : is a package manager, it is used to install,query,verify,update and remove individual software packages in the 
+      rpm (RED HAT PACKAGE MANAGER) format 
+
+du :  the du command in linux is used to estimate file and directory space. By defualt,it displays the disk usage of the
+      specified files and directories in bytes.
+
+du -h : is used to display usage in a human-readable format. when you run du -h,it will list the disk usage files
+        and directories in the current directory and its subdirectories, showing sizes in a format like "k" for
+        kilobytes, "M" for megabytes, "G" for gigabytes, etc.
+SELinux : (Security-Enhanced Linux) is a security feature implemented in Linux distributions. it provides
+          a flexible mandatory access control (MAC) system that allows administrators to define and enforce security policies.
+                  SELinux works by enforcing access controls based on security policies defined for various
+         various resources, such as files,processes, and network interfaces, it can prevent unauthorized access and privilege escalation, enhancing the overall security of the system.
+
+Firewall : A firewall is a network security system that monitors and controls incoming and outgoing 
+           network traffic based on predetermined security rules. it acts as a barrier between a trusted internal network and untrusted external networks, such as the internet. Firewalls can be implemented in both hardware and software  forms and can be configured to allow or block specific types of traffic based on various criteria such as IP address,port number, and protocol. They are essential for protecting  networks from unauthorized acces, malicious activities and other security threats.
+
+systemctl : systemctl is a command-line utility used in linux systems, it is used for controlling and managing system 
+            services, such as starting,stopping,enabling,disabling,restarting, and quering the status of services.
+            with systemctl, administrators can efficiently manage system services  and monitor their status, helping to ensure the smooth operation of the system.
+
+     PackageMGT
+
+       text editors: vim / vi / nano / tree
+
+use package managers to install packages : sudo yum install nano
+
+yum/dnf =  yum and dnf are package management utilities used in linux distributions such as Fedora,Centos and Red Hat Enterprise Linux (RHEL) to install, update, remove, and manage software packages, yum (Yellowdog Updater Modified) was a defualt 
+           package manager in earlier versions, while DNF (Dandified Yum) is its successor, offering improved performance and features.
+
+Chocolatey =: Chocolatey is a package manager for Windows that automates the process of installing, updating
+              configuring and removing software packages. 
+               it simplifies software management by providing a command-line interface and a repository of packages maintained by the community. Users can easily install applications by running commands in the command prompt or PowerShell.
+
+apt =: short for Advanced Package Tool, is a package management system used in Debian-based Linux distribution such as 
+       Debian, Ubuntu, and Linux Mint. It is used to install, upgrade, and remove software packages on the system, along with handling dependencies automatically. APT utilizes a set of command-line tools like "apt-get and apt-cache" to manage packages efficiently. 
+
+
+instaling a package with wget, first of all you have to be on this location /opt/ so first of cd /opt/  then yo can go ahead to run sudo wget space the link you want to install
+
+  sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.86/src/apache-tomcat-9.0.86-src.tar.gz 
+
+
+      ServiceMGT:
+    systemctl stop/start/status/enable/disable/restart
+ 
+ service serviceName arguments
+ service sshd status
+ service sshd start
+ service sshd stop/start/status/enable/disable/restart
+
+ sudo systemctl enable httpd : == this command will enable httpd servives 
+
+   whats the purpose of enabling service, so when you reboot the system it automatically comes on.
+
+sudo service httpd status  
+
+sudo systemctl status httpd := the two commands achieve the same result of checking the status of the Apache HTTP Server, but are used on systems with different init systems. 
+
+vi /etc/ssh/sshd_config.d/50-cloud-init.conf yes
+
+PasswordAuthentication yes
+
+
+    ProcessMGT : = top, ps -ef, jobs, kill, bg, fg
+
+top -
+ 08:20:57 up 19:36,  1 user,  load average: 0.01, 0.02, 0.00
+Tasks: 102 total,   1 running, 101 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.3 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.3 hi,  0.0 si,  0.0 st
+MiB Mem :    754.0 total,    251.2 free,    243.7 used,    375.2 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.    510.3 avail Mem
+    
+uptime:
+08:24:42 up 19:39,  1 user,  load average: 0.00, 0.00, 0.00
+
+talking about load average
+                 
+                       system -1              system -2
+
+load average          0.95/1=95%              0.65/1=65%
+
+this means the system 1 is at high risk of crashing because the load average is too high and it needs immediate attention, troubleshooting, this is where you run the top command to see whats going on with the system and if we see some programs thats not supposed to be running or maybe the system has a lot of zombies, we use the command "kill" to stop some process we dont need at that moment, and to kill process on the system, you copy the PID which is the process id 
+
+run the command "kill  4672" and process id number
+
+
+
+              explain your experience with linux system??
+===================================================================
+1. Deploying, provisioning and creating linux srervers in AWS Cloud, and connecting to servers using secure shell "ssh" protocol, we use our mobaxterm Git bash
+     we configure servers by installing the packages we need to work with for efficiency, optimising our server like when we use top command to make sure our server is running effectively, commissioning the server when we spin up the ec2 instances and coonecting to our mobaxterm with the ec2 instance created, decommision any server thats not in use by sending it to the background till when needed, and secure linux servers.
+
+ And also running work loads on the command line interface with the help of the accurate commands, my strenghth are in linux worked on file management with the help of touch command to create files, vi to edit file contents, echo to add contents into a text file and chmod to change users mode, also USER management adding users with sudo useradd, adding users to group with sudo usermod command, deleting users with sudo userdel command, and also modifying users password expiration information with the sudo chage command, and PROCESSMGT, using Top command to monitor system performance and identifying resource-intensive processes, which provide insights in the system activities, also Woorked on package management, using wget to download files from the web,and to  yum install, update, remove and manage software packages, and also worked with rpm (RedHat Package Manager) to install,query,verify,update and remove individual software packages in the (RED HAT PACKAGE MANAGER) format also worked on SYSTEMGT systemctl command to start, stop, enable, system httpd status. 

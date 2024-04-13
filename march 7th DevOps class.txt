@@ -1,0 +1,135 @@
+===================================================================================================:
+
+                             SHELL SCRIPTING MARCH 7TH
+
+===================================================================================================:
+
+lets write a script thats going to help us check our system resource, the memory uptime , the disk usage , we need an interpreter when we are writting a script or coding , and we are working on bash scripting, which the interpreter is "shebang (#!/bin/bash)
+     
+   writting a Script that will monitor our system resource, we can do something like this, and always make your scrtipt readable to others. even tho you are the author of the script, becasue another enginner might want to make use of your script.
+
+    name of script is: system resource management, but we dont need to make the name too long we can use srm.sh,
+  and after writing this script, we dont need to give an
+   executable permission to the script, we can still run the script with the help of the interpreter which is sh "sh srm.sh"
+
+#!/bin/bash
+echo "This script monitor system resource"
+echo
+
+echo "The system uptime is"
+uptime
+echo
+
+echo "system memory utilization"
+free -m
+echo
+
+echo "system disk utilization"
+df -h
+
+we can see that this script contains three activities,
+ 
+ the uptime: which shows us the load average of the system, and we can confirm the system good and can work efficiently.
+
+ free -m: which shows us the memory used and free memory we have in the system.
+
+ df -h: this shows us the disk utilization.
+
+   this kind of script can be running every other hour to monitor the health of the system. and its very helpful to monitor the system resource.
+
+     scripting or automation language has different languages when it comes to script, we have 
+
+  bash scripting : is a way to automate using the bash shell, at the beginning of a bash script, you typically include a 
+                   "SHEBANG" #!/bin/bash, which tells the system which interpreter to use to run the script.
+
+  python scripting: is a powerful way to automate tasks, manipulate data, and build applications using the python 
+                    programming language. you'll need python installed on your system.  
+
+  Groovy : is a powerful language for scripting on the Java Virtual Machine, offering a flexibility of scripting languages 
+           and robustness of java.  you can use groovy for jenkins jobs too.   
+
+           writing a new Script called  deploy.sh
+#!/bin/bash
+echo "Walmart projects is ready for the market"
+echo "Deployment Start"
+mkdir deployment 
+touch deployment/app.java 
+chmod 744 deployment/app.java
+sudo chown martin:Walmart deployment/app.java
+mkdir app
+cp deployment/app.java app 
+echo "Deployment Sucessful"
+whoami
+echo "Walmart projects is completed and deployed successfully" 
+
+after writting this script, give executable permission to deploy.sh by running chmod +x deploy.sh and alwyas remember to add the user you are working as to the sudoers group before writting a bash script as the user.
+
+and to chek permission access you put on the app directory, use the command "ls -ltr" app/ 
+
+
+   How to make my code or script readable to other Engineers:
+by adding note, comments, explanations to your note this will make your script easily readable and understanding to other people.
+
+ "single line comments"  name of script "comments.sh"
+
+ #!/bin/bash
+ echo "single line comments started"
+ # This script welcomes all Engineers to SeariseTech.
+ # only run this script on Linux Machine and you can only run this script if you are an Engineer
+ # Author: martin
+ # Date: 03/12/2024 
+ sudo yum -y update | tee updatefile
+  date
+  echo "single line comments ends"
+
+yum install git | tee git.txt : this will show you the output of the installation while is happening on your screen and also save the result to the git.txt
+
+yum install git > git.txt : this will not show you the install process but will save the result of the output to git.txt
+
+yum install git > git : this will over write the content in the git file, if its not empty
+yum install git >> git : this will save the content in the and add your new text under the content
+s in the file already if its not empty.
+
+yum install -y git, when we install we want to install on /opt/ to install, but when you install a file from a random directory it gets saved in the /tmp/ directory
+
+    A project creating a webapp
+
+#!/bin/bash
+# "Installing Dependencies"
+echo "##############################################"
+echo "Installing packages"
+echo "############################################"
+sudo yum install wget unzip httpd -y
+echo
+
+#Start & Enable Serice
+echo "##############################################"
+echo "Start & Enable HTTPD Service"
+echo "#############################################"
+sudo systemctl start httpd
+sudo systemctl enable httpd
+echo
+
+# Creating Temp Directory
+echo "##############################################"
+echo "Starting Artifact Deployment"
+echo "#############################################"
+sudo mkdir -p /tmp/webfile
+sudo cd /tmp/webfile
+echo
+
+sudo 
+sudo unzip 2098_health.zip
+sudo cp -r 2098_health/* /var/www/html
+echo
+
+# Bounce Service
+echo "################################################"
+echo "restarting HTTPD Service"
+echo "##############################################"
+sudo systemctl restart httpd
+echo
+
+# Clean UP
+echo "############################################"
+echo "Removing Temporary File"

@@ -1,0 +1,152 @@
+
+=======================================================================================================================:
+
+As a DevOps Engineer i work with my team to 
+ 1, Deploy
+ 2, Test
+ 3, Build
+ 4, Review, qualify {codquality}
+ 5, Backup and secure code
+ 6, Maintain the code
+ 7, manage and monitor the code
+   Software and applications using computerized automation technologies.
+
+
+Writting a script to create a user dynamically, writing a script that can create multiple users at the same time.
+
+#!/bin/bash
+# This script will create user dynamically
+# this script requires root/sudo access to run
+sudo useradd chidi
+sudo groupadd DevOps
+sudo usermod -aG DevOps chidi
+id chidi
+
+
+=====================================================================================================================================================================================:
+
+                                    TROUBLESHOOTING A LINUX SERVER
+
+=====================================================================================================================================================================================:
+
+          If im troubleshooting a linux Server as an Engineer, 
+ I'll check the credentials making sure i have the right username and password of the server i am trying to conncet to, ill also make sure i have the correct IP address, 
+ I'll make sure the SSh is running or installed in the server.
+     If all this is efficient before running any troubleshooting i will go look in the LOG file, examine the log file where i can gather information about error messages and system's 
+ behavior which can help in troubleshooting and resolving issues,
+ I'll verify if required software packages are installed 
+ I'll make sure my service is running by running sudo SYSTEMCTL STATUS HTTPD to make sure my webservices is running and all make sure my port is open for connections,
+ I'll restart the services,  with sudo systemctl restart 
+ I'll use command tools like "CURl" to check conncetivity, test HTTPD response, debugging ectc of the server.
+ I'll also use the Command tool "PING" to check conncetions between the network servers to see if im getting response from the server im trying to connect to,
+ I'll use the TOP coomand to provide insight into system resource usage and process activity  
+
+===========================================================================================================================:
+
+                                            VARIABLES
+
+============================================================================================================================:
+
+VARIABLE comes in UpperCase by convention
+Variable can only contain letter, numbers, and underscores.
+  
+  to create a variable follow this step.
+echo "Hello world"  
+NAME=Martin
+echo "My name is $NAME"
+echo "My name is ${NAME}" 
+=======================================================================================================:
+    
+     #USER INPUT
+read -p "Enter your name:" NAME
+echo "Hello $NAME nice to meet you!" 
+
+*The "read -p" is used in bash shell scripting to prompt the user for input with a specific message
+==============================================================================================================:
+
+   SIMPLE IF STATEMENT
+
+ NAME="Martin"
+
+ if [ "$NAME"="Martin" ]
+ then
+ echo "your name is Martin" 
+ fi
+
+This script checks if the variable $NAME is equal to "Martin" and, if so, echoes "your name is Martin."
+
+if not
+if [ "NAME" == "Martin"]
+then
+echo "your name is Martin"
+else
+echo "your name is NOT Martin"
+fi
+
+# IF-ELSE
+if [ "$NAME" == "Martin" ] 
+then
+elif [ "$NAME" == "Tony" ]
+then
+echo "Your name is Tony"
+else
+echo "your name is NOT Martin or Tony"
+fi 
+this will prompt you saying your name is not Martin or Tony.
+
+============================================================================================================================:
+
+      
+###################       
+# val1 -eq val2 Returns true if the values are equal
+# val1 -ne val2 Returns true if the values are not equal
+# val1 -gt val2 Returns true if val1 is greater than val2
+# val1 -ge val2 Returns true if val1 is greater than equal or equal to val2 
+
+# COMPARISON
+NUM1=3 # after first run add 5 behind 3
+NUM2=5
+if  [ "$NUM1" -gt "NUM2" ]
+then 
+echo "$NUM1 is greater than $NUM2"
+else
+echo "$NUM1 is less than $NUM2"
+fi      
+
+####################
+# -d file True if the file is a directory
+# -e file True if the file exists (note that this is not particularly potable, thus -f is generally used)
+# -f file True if the provided string is a file
+# -g file true if the group id is set on file
+
+FILE="test.txt"
+if [ -f "$FILE" ]
+then
+  echo "$FILE is a file"
+else
+  echo "$FILE is NOT a file"
+fi  
+
+this script will help you see if there is a file named "test.txt"
+
+
+a liquor store script that will help authenticate people over 21 and unauthenticate people less than 21 
+
+name of script case_statement.sh
+
+#CASE STATEMENT
+read -p "Are you 21 or over? Y/N" ANSWER
+case "$ANSWER" in
+[yY] | [yY][eE][sS])
+echo "You can have a beer :)"
+;;
+[nN]| [nN][oO])
+echo "Sorry we do not sell drink to a minor"
+;;
+*)
+echo "Please Enter y/yes or n/no"
+;;
+esac
+
+
+and when you are closing a case statement you spell case backwards "esac"

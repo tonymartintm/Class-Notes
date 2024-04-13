@@ -1,0 +1,142 @@
+Linux File Structure :
+===================
+Windows       Linux
+Files         Files
+Folders       Directories
+Sub-folders   Sub-directories
+
+root Directories   C:\
+C:\
+
+Linux File Structure :
+======================
+Linux Root Directory = /
+
+
+Commands:
+    ls       = List the content of dirctory
+    pwd      = print the present working Directories
+    cd       = change Directory
+    hostname = to change hostname you run this command "sudo hostnamectl set-hostname MartinsTech" and to verify you run
+               hostname. 
+    cat      =reads content of a file
+    vi       =is a text editor, when you are in editing mode, you click " i "to insert text, "esc" to leave insert mode and to save your text edit :wq! to save and quit :q! to quit without saving edited text.
+ 
+
+ /home/ec2-user
+afs  boot  efi  home  lib64  mnt  proc  run   srv  tmp  var
+bin  dev   etc  lib   media  opt  root  sbin  sys  usr+l
+
+ec2-user  prof
+
+ ls 
+ pwd
+ clear
+ cd
+ touch : to create a file 
+ mkdir : to  create a directory
+echo "my home" > file.txt : this command can be used to create a file too. 
+
+bin: = The /bin directory contains essential user binaries (executable programs) that are required for system operations and available to all users. these binaries are fundamental to the functioning of the operating system and include common commands and utilities that 
+       users interact with regularly, such as ls (list files), cp (copy files), mv (move files), rm (remove files), and many others.
+
+sbin: = the /sbin directory contains system binary files/commands' that are crucial for system administration tasks. these binaries are typically intented for use by the system administrator or for tasks that require elevated privileges.
+      some important system binaries located in "/sbin" include utilities for managing the system's boot process, network configuration, disk management, and system maintenance.
+
+=============can only be executed by the admin-user / root user
+
+What is the difference between bin and sbin directories in Linux?
+sbin: are binary files only executable by users with administrative priviledge or elevated priviledges or admin/root user. while
+bin: files are executable by any user [normal users and admin-users]
+
+some commands that can be executed by the admin-user / root user:
+useradd or adduser
+passwd
+chmod
+chown
+visudo
+
+etc: directory contains configuration files
+===
+/etc/shadow            =detail information about users 
+/etc/passwd            =detail information about users password
+/etc/ssh/sshd_config   =ssh configuration details
+
+tmp: = is where temporal files are stored
+===
+
+opt: = Where softwares and packages are installed
+=====
+
+lib: =contains library files
+====
+
+var: =contains dynamic files[logs files can be found in this directory]
+========
+/var/log/massages =the first two are directories while the last one is a file, if you want to look into that as an ordinary user, this is the command to run.
+sudo cat /var/log/messages
+
+logs: == :if you want to start your troubleshooting as a DevOps engineer, you want to start from the log file, cos it changes alot, and see whats going on there if its any changes.
+
+proc: = /proc directory in linux is a special virtual file system that provides an interface to kernel data structures. it doesn't contain real files but instead presents information about running processes and system information as if they were files.
+
+=====in proc we have >
+- meminfo
+- cpuinfo
+  cat /proc/meminfo = to get the memory of the cpu you are working on.
+  cat /proc/cpuinfo = to get every information you need about the cpu.
+  ==========
+  as a regular user you'll have to use sudo access to run these commands
+
+  Basic Linux commands:
+  =====================
+
+Run task & workloads using commands. : 
+
+Directory: = is a container of Sub-Directories and files
+
+Folder:    = is a container of Sub-Folders and files
+
+=======================================================
+
+Directory Management Commands: 
+
+mkdir     = Create a Directory
+rmdir     = Delete an empty Directory
+rm -rf    = Delete any Directory
+cd        = Directory navigation
+pwd       = Present working Directory
+ls        = list the Directory's content
+  
+     Ticket0001:
+ Create work directories for tesla??
+
+1.tesla tesla_dev tesla_test tesla_prod
+mkdir tesla
+
+mkdir -v tesla
+
+-v = Verbos mode which creates multiple directories at once.
+mkdir -v tesla_dev tesla_test tesla_prod
+
+2. mkdir -vp prod/git/maven/aws/nexus/java
+
+-p =  will create both parent and child directory
+
+the tree command displays the content of directories in a tree structure.
+
+install the tree command using the  yum package manager 
+        yum install tree
+
+ mkdir -pv class/class1/class2/class3/class4/class5/class6/class7
+
+ sudo -u root mkdir myjob = this created file will be owned by root
+
+cd class/class1/class2/class3/class4/class5/class6/class7
+cd.. if you are on 7th drectory of class this command takes you back one directory to class6
+cd../../ this takes you to directory class5
+c../../../ takes you to directory behind the class5 
+
+and this is a continous process depending on how many dirctory you have on your home 
+cd -   = takes you to your last Directory
+cd     = takes you to the user's home Directory

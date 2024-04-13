@@ -1,0 +1,247 @@
+
+=================================================================================================:
+
+ Command Line Arguments = CLA
+
+ name of script db.sh
+
+#!/bin/bash
+# This script will backup databases in all the environments
+# Please specify the environments as an argument
+# Please specify the server and your details as an arguments 
+# dbserver1 dbserver2 dbserver3 dbserver4
+# Martin, Calvin, CJ, Iyanu
+mkdir backupdir
+cp -R * backupdir
+v
+you can write this script in your working environment to backup your files
+
+dbbackup.sh
+
+#!/bin/bash
+# This script will backup databases in all the environments
+# Please specify the environments as an argument
+# Please specify the server and your details as an arguments 
+# dbserver1 dbserver2 dbserver3 dbserver4
+# Martin, Calvin, CJ, Iyanu
+
+# sh db_backup dev dbserver1 Martins
+# sh db_backup.sh
+# sh script.sh arg1 arg2 arg3 ..... arg10
+  $0     $1     $2     $3      $10
+echo "Please pass 3 arguments with your script"
+echo "The 1st argument is $1"
+echo "The 2nd argument is $2"
+echo "The 3rd argument is $3"
+echo "The 4th argument is $4"
+echo "The 5th argument is ${10}"
+echo "The number argument is $#"
+echo "The list of argument are $@"
+echo "The list of argument are $*"
+uptime
+date
+echo "The status of your last run command is $?"
+mkdir -p /tmp/automation_backup
+cp -R * /tmp/automation_backup
+echo The process id is $$   
+
+and you can add dev dbserver1 martins as arguments with sh dbbackup.sh dev dbserver1 martins
+
+Command line Arguments: Command line arguments are parameters passed to a program when it's run in a command-line interface. They alloww users to provide input to a program without modififying its code. Command line arguments are accessed through the sys.argv or argv variable respectively. These arguments are seperated by spaces and can include options, flags, filenames, or any other data the program needs to operate.
+
+$? = this will display the status of your last run command 
+$? = 0 this means all commands ran successfully
+$? = 1-127 = this means something went wrong with the commands you just ran
+
+N/B What is the importance of $? in shell scripting: = by checking the value of $?, scripts can determine if the previous command succeeded (exit status 0) or failed (non-zero exit status), allowing for appropriate actions to be taken based on the outcome.
+==========================================================================
+EXPRESSIONS: in scripting, expressions are combinations of values, variables, operators, and function calls that are evaluated to produce a result. These expressions can perform various tasks, such as mathematical calculations, string manipulations, and logical comparisons. scripting languages like python, JavaScript and Bash support expressions for performing tasks efficiently within scripts. for example, in Bash and Python, expressions can be used to calculate arithmetic operations like addition, substraction, multiplication, and division or to manipulate strings using string method and operators.
+
+simple arithmetic operation sao.sh
+expressions
+
+expr 4 + 2
+expr 4 - 2
+expr 4 / 2
+expr 4 \* 2
+expr 4 % 2
+expr 9 % 5
+expr 9 % 4
+
+sao2.sh 
+echo welcome to simple arithmetic operations
+echo please enter the first number 
+read num1 
+echo enter the second number
+read num2
+echo the total is =
+expr $num1 + $num2
+echo The difference is =
+expr $num1 - $num2
+
+sao3.sh
+# Run this script with 2 interger as an argument 
+# sh sao.sh 50 10
+# sh sao2.sh arg1 arg2
+echo The sum of `expr $1 + $2`
+echo The product is `expr $1 \* $2`
+echo The differnce is `expr $1 - $2`
+
+make sure to add your arguments for example sh sao3.sh 50 10 before running this script.
+
+
+Sales Revenues:
+==================:
+name of script = SalesRev.sh
+
+# This script calculates sales and revenue 
+# From quantity and price 
+# Collect the values dynamically 
+echo Please enter your name
+read name 
+echo Please enter your price
+read price
+echo Enter the quantity sold
+read qty
+echo $name sold 500 software for `expr $price \* $qty`
+# Enter price and quantity as CLAs
+# sh SalesRev.sh Martins 4000 500
+echo $1 sold for `expr $2 \* $3`
+
+you can still run this same script like this:
+
+# Enter price and quantity as CLAs
+# sh salesRev.sh martin 4000 500
+echo $1 sold for `expr $2 \* $3`
+echo ""
+
+
+and always specify your arguments before running the script, example sh salesRev.sh martin 4000 500
+
+
+# Vote Counting script 
+# pass 3 arguments for Candidates, no of pulling unit and average vote
+# echo $1 got `expr $2 \* $3`
+
+
+=========================================================================
+
+           Inequality signs: 
+  Equality and Inequality:
+
+  # if (($# >= 3))
+  # if [$# -gt 3]
+  # if [$# -lt 3]
+
+  -eq or == (x==y)
+  -ne or != (x !=y)
+
+  -eq or == represents equals to
+  ((x == y)) or [x -eq y]
+  -ne or != represent not equals to 
+  ((x != y)) or [x -ne y]
+  -gt or > represent greater than 
+  ((x > y)) or [x > y]
+  -It or < represent less than
+  ((x < y)) or [x < y]
+  -ge or >= greater than or equals to
+  -le or <= less than or equals to 
+=============================================================
+
+* $# : is a special variable that holds the number of arguments passed to a scrtipt or a function. 
+ for example
+ #!/bin/bash
+
+ echo "Number of arguments passed: $#"
+
+ * $* : is a special variable that represents all the arguments passed to the script concatenated into a single string. 
+   for example 
+ #!/bin/bash
+ 
+ echo "ALL arguments passed as a single string: $*" 
+
+ * $@ : represents all the arguments passed to the script as seperate strings, and the script iterates over them using a for loop.
+ for example
+
+ echo "ALL arguments passed as seperate strings:"
+ for arg in "$@"; do 
+     echo "$arg"
+ all arguments passed as seperate strings: arg1 arg2 arg 3
+
+ * $? : is a special variable that holds the exit status of the last command executed. The exit status indicates whether the command was successful or if there was an error. Typically, an exit status of 0 indicates success, while a non-zero exit status indicates an error
+
+ * $! : is a special variable that holds the process ID (PID) of the most recently executed background command.
+ for example
+#!/bin/bash
+sleep 10 & # run 'sleep 10' command in the background 
+echo "background" process ID: $!"
+# print the process ID of the background command
+
+* $$ : is a special variable that holds the process ID (PID) of the current shell. it is commonly used to create temporary files or directories with unique names.
+for example 
+#!/bin/bash
+echo "process ID of the current shell: $$"
+ this will output the process ID of the shell where the script is executed.
+
+* $1 : this is a special variable that represents the first argument passed to a script or a function
+for example
+#!/bin/bash
+echo "The first argument passed to the script is: $1"
+$1 holds the value argument1 because it is the first argument passed to the script. if no arguments are passed, $1 will be empty.
+
+* $2 : this variable represents the second argument passed to a script, expample above just like $1.
+
+* $n : (Where n is a number) represents the nth argument passed to a script
+for example
+$1 represents the first argument
+$2 represents the second argument and so on
+
+* $0 : is special variable that holds the name of the script or the name of the shell itself if the script is being executed within a shell
+for example 
+echo "The name of the script is: $0"  
+this will output the name of the script.
+
+  if (( $# == 3 ))
+  then 
+  echo "You are authenticated"
+  echo $1 got `expr $2 \* $3
+  else
+  echo "Please, run the script with 3 arguments"
+  fi
+
+Conditions:
+
+if statememts === syntax:
+
+if (( conditioned ))
+then
+commands
+else
+commands > 
+fi
+
+
+echo "How much are you willing to pay"
+read price
+if [ $price -ge 4000 ]
+then
+echo "your price is accepted"
+else
+echo "sorry we can't accept your price"
+fi
+
+#!/bin/bash
+# This script will authenticate bank user
+echo "Good Afternoon"
+echo "Please enter your name"
+read name
+echo "please enter your pin"
+read pin
+if [ "$pin" -eq 2024 ]
+then
+     echo "You are authenticated"
+     echo "Thanks for banking with Access bank"
+else
+     echo "Sorry, you have entered the wrong pin"
+     echo "Entering multiple wrong pins can block your account for your own protection"
+fi

@@ -1,0 +1,35 @@
+          GITHUB
+git diff: command is used to show the changes between two commits, between a commit and the working directory 
+          or between two branches, among other options. It provides a detailed view of what has changed in 
+          terms of added, modified, or deleted lines in files within the repository.
+
+git diff main master: this will show you files in both branches and the difference if there are modified 
+                      files too it will diffrentiate them.	
+
+how do we fix a merge conflict: use commands "git log" "git status" "git add ." git commit -m "comments" "git merge branch-name"
+this will do it.
+
+git log --oneline:  this will output a list of commits with their abbreviated hasshes and commit messages,
+                    for examaple : abcdef1 commit message 1        					  
+		                         : 1234567 commit message 2
+
+git restore : is used to restore working tree files to their state at a specific commit or to unstage changes in the staging area.
+it can also be used to restore files or deleted files to their state at a previous commit or to discard changes in your working directory.
+examples:
+* Restore specific file to its state at the last commit: "git restore <filename>"
+* Discard changes in the working directory for a specific file: "git retore --source=HEAD --staged <filename>"
+* Restore all files to their state at the last commit: "git restore ."
+* Restore a specific file to its state at a specific commit: git restore --source=<commit> <file>
+								 
+git reset: The git reset command is used to reset the current HEAD to the specified state.  
+git revert: git revert is a command used to create a new commit that undoes the changes made by a previous commit.
+            unlike git reset, which alters the commit history, git revert  creates a new commit tha effectively undoes the changes introduced by a 
+            specific commit while still preserving  the commit history "git revert file2"
+
+read more
+git restore
+git reset
+git revert			
+
+ https://github.com/iam-veeramalla/shell-scripting-projects
+ clone this repository

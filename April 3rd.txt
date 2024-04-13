@@ -1,0 +1,64 @@
+====================================================
+my token :: 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
+====================================================
+
+  GITHUB
+ some git commands
+* git init: initialize a new Git repository in the the current directory.
+* git clone <repository url>: clone a repository from a remote server to your local machine.
+* git add <file>: Add a file to the staging area for the next commit.
+* git commit -m "commit message" commit changes in the staging area with descriptive message.
+* git status: show the current status of the repository, including changes not yet staged.
+* git log: view a history of commits.
+* git push: push local commits to a remote repository.
+* git config user.name: to check what git account that is configured on the server.
+* git pull: fetch changes from the remote repository and merge them into the local branch.
+* git branch: List all local branches.
+* git checkout <branch>: switch to a different branch.
+* git merge <branch>: Merge changes from another branch into the curerent branch.
+* git remote -v: view remote repositories associated with your local repository.
+* git remote add <name> <url>: Add a new remote repository.
+* git reset <file>: Unstage changes for a specific file.
+* git reset --hard: Discard all changes in the working directory and staging area, reverting to the last commit.
+
+   There are many more commands and options available depending on your specific needs and workflow.
+ to create a Repository locally, create a directory, go to the directory you created and initialize the directory,
+ # create a directory, cd into the directory, run git init to initiate the directory, then git status to check the status of the repository.
+ and create a file in the git repository after creating the you can run the command "git add ." to promote the file to staging area, and after 
+ you are done modifying the file you can commit the file into repository with "git commit -m "and always put in your comment"
+ 
+ and you can always create a new repository on your GITHUB and clone the url on your terminal then cd in the name of your repository and create a directory 
+ create a file in it with vim to add content in the file after this use git status to the check the status of the repository 
+ and after this send the file to statging area with command git add . and after this you can commit your new repository with git commit -m "comments"
+ and alwyas give an allias to your repository with command "git remote add aliasname url" 
+ then use commad  "git push -u aliasname main" to push local commits to a remote repository. which will request for your username and token information.
+
+===================================================================================================================
+                        Creating a new repository on the command line
+===================================================================================================================
+echo "# primetimemartin" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/tonymartintm/primetimemartin.git
+git push -u origin main
+
+=====================================================================================================================
+                       or push an existing repository from the command line
+=====================================================================================================================
+git remote add origin https://github.com/tonymartintm/primetimemartin.git
+git branch -M main
+git push -u origin main
+
+
+
+When an existing file was modified
+(use "git restore <file>..." to discard changes in working directory)
+        modified:   Pilot_log.sh
+
+When a new file was just added
+(use "git rm --cached <file>..." to unstage)
+        new file:   myfile.txt
+
+$ git restore --source=HEAD --staged --worktree <filename> to restore all misatkes you made on a local repository

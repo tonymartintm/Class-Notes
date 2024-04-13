@@ -1,0 +1,102 @@
+=====================================================================================================================:
+
+                                          MARCH 2ND 2024
+
+=====================================================================================================================:
+
+  Scheduling and Automating tasks using cron tables : 
+
+1. Backup all databases every midnight
+2. Deploy the latest version of the application every Sunday at midnight
+3. optimise our appServers every month on the 28th at midnight 
+      "sudo yum update -y && yum upgrade -y" 
+4. Monitor system resources and send alerts using threshold every minute 
+     if cpu/mem usage exceed 80% send email df -h = cpu
+
+     Archive/Data Backup commands: 
+
+zip   : = Package and compress (archive) files. 
+unzip : = Extract compressed files in a zip archive.
+
+   to zip a file , for example the name of the file is Martin.txt the pattern to zip it is : = 
+                                    "zip Martin.zip Martin txt"
+   to unzip this file run           "unzip Martin.zip"
+
+tar : = is used to extract files 
+  tar -cvf 
+  tar xvf
+ to compress a file to a .tar.gz file , for example the name of the file is Martin.txt the way to compress it is, : = 
+        tar -cvf Martin.tar.gz Martin.txt
+
+ some random commands we might need at the work place: 
+
+ *ping : = ping is a command used to test reachability of a host on an internet protocol (ip) network. for example
+  ping <hostname_or_IP_address> to ping an ip address you can run ping 35.170.182.136
+                                to ping a website like like google.com you can run ping google.com
+
+ *telnet : = Telnet is a network protocol used on the internet or local area networks to provide bidirectional interactive text-oriented communication using a virtual terminal connection. 
+                             it allows one computer to connect to another over a network, 
+    typically the internet, and interact with it as if it were directly connected. telnet <hostname_or_IP_address> <port_number>   
+    
+ *netstat- : = the netstat command is a network utility tool used to display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
+
+           netstat options 
+ netstat -a : show both listening and non-listening (established) sockets.
+ netstat -t : tcp = display TCP connections.
+ netstat -u : udp = display UDP connections.
+ netstat -n : number =show numerical addresses instead of revolving hosts.
+ netstat -p : port = show the PID and name of the program to which each socket belongs 
+ netstat -l : listening = this will show all active connections and their states, including listening ports  
+
+    netstat -tulp 
+  this command is used to display active network connections and listening ports along with their respective processes in Unix-like  operating system.  for example you want to see what port ssh is listening to, the command to run is 
+   netstat -tulp | grep shh
+
+     netstat -nutap
+  this command is often used for trouble shooting network-related issues, monitoring  network activity, and diagnosing network performance problems. 
+  
+what are protocols :=  protocols refer to the communication standard and rules implemented within the operating system to facilitate network ccommunication. 
+
+whats is a port := A port is a virtual endpoint for communication between two processes or devices. ports are used to distinguish different types of network traffic and facilitate the transmission of data between applications or services. 
+
+                     PROTOCOLS               PORTS
+                       ftp                    21      
+                       ssh                    22
+                       http                   80
+                       https                  443
+                       nfs                    2089
+                       rdp                    3089
+                       smtp                  25/465/587
+                       tomcat                 8080
+                       jenkins                8080
+
+ Whats the difference between HTTP and HTTPS : = They both use the same transport layer but HTTPS is more secured than HTTP    
+ 
+ Whats the difference between RDP (Remote Desktop Protocol) and TCP (Transmission Control Protocol) : = TCP is a fundamental protocol for establishing connections and ensuring reliable data transfer, while RDP is a specific application-level protocol designed for remote access and control.  
+
+        *NB* RDP utilizes utilizes TCP as its underlying transport protocol to transmit data over the network.                    
+
+*watch df -h : = provides a convenient way to monitor disk space usage in real time  
+ for example run= watch -n df -h == this is useful for monitoring disk space usage, especially on servers or systems where disk space is a critical resource.
+
+*sudo shutdown -h now : = this command will shutdown the system immediately, make sure to save any unsaved work before running this command. 
+
+*sudo shutdown -r now : = this command will restart the system immediately
+
+*sudo reboot : =this command will reboot the system immediately.
+
+*the difference between telnet and ssh : ssh is more secured than telnet, because telnet is a more traceable access and ssh is not traceble.
+
+*lsof : = lsof stands for 'list open files' and its a command-line utility used to list all open files and processes that opened them, it can be helpful for troubleshooting issues related to file access identifying which processes are using specific files, and managing system resources.
+
+             Input directions : =
+
+  say you want to update your system and you are busy with your terminal and dont want to see the update prompt showing on your screen, you can append it to a file and this is how you do it : = sudo yum update -y > update, this will create a file named update and put all the update prompt in the file and you can go check the outcome from the file when you get less busy.  
+
+  echo "i will succeed" > class : = this command will create a filed called class and  direct the content into the file.
+
+      *How can a user access the server externally using a password* 
+   we cd into : = cd /etc/ssh/sshd_config.d/   after running this command you and ll long to see whats inside it,  you should see this file named "50-cloud-init.conf" , then vi into 50-cloud-init.conf , you should see where to change the authentication to yes. and you can on run this as a root user. after all this changes make sure you restart the sshd service with the "systemctl restart sshd"
+
+   say i want to give calvin and elevation access to run commands this is how i do it on the command line : =
+    sudo echo "calvin ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/calvin

@@ -1,0 +1,72 @@
+searise Technology solutions-sts- SeariseTech_Airline:
+===========================================================
+Development Stage
+Testing stage
+Build Stage
+
+what is Git: Git is open source and free source control mangement or whats refered to as SCM
+
+Releases: in GitHub, a release is a specific snapshot of a project at certain point in time. it's essentially
+a way to package and distribute a specific version of your software or project. Releaseses are often used tomartk signficant milestones 
+or versions of a project, such as major updates, bug fixes, or new features. They typically include a release title,
+description, and any  necessary release assets, such as source code files, binaries, documentation, or release notes.
+Release make it easier for users to download and use specific versios of a project, and they provide a clear history of 
+projects development over time.
+ 
+Releases 1 Version 1 1000 line of code
+     Welcome to seariseTech_Airline
+	 
+Releases 2 Version 2 2000 line of code 
+       Users Login
+
+Releases 3 Version 3 2000 line of code 
+       Users Registration form	 
+
+versioning in software development: 
+=========================================
+version Control System = VCS: 	A version control system is software tool that helps track changes to files over time. it allows
+multiple people to collaborate on a project and keeps track of every modification made to files, enabling users to revert back to 
+previous versions if needed.
+
+   The key functions of a VCS include :
+*Tracking Changes: It records changes made to files, including who made the changes and when they were made.
+*Versioning: It stores different versions of files, enabling users to switch between different states of 
+             a project.
+*Collaboration: It facilitates  collaboration among tean members by providing a centralized repository where 
+changes can be shared and merged.
+*Conflict Resolution: It helps resolve conflicts that may arise when multiple users make changes to the same 
+file simultaneously.
+   Popular version control system include Git,Subversion (SVN), Mercurial, and Perforce. Git, developed by 
+linus Torvalds, is one of the most widely used VCS, known for its distributd nature and efficient branching 
+and merging capabilities.   
+Local
+
+we have Centeralized and Distributed Git
+
+what is GitHub and What is GitLab::
+Github and GitLab are both web-based platforms used for hosting and managing software projects, particularly
+those that use the version control system called Git. They provide features such as code repository hosting,
+issue tracking, code review, and collaboration tools for developers and teams working on software projects.
+While they serve similar purposes, they have some differnces in terms of features, pricing, and target audience.
+GitHub is one of the largest and most popular platforms, widely used by open-source projects and enterprises alike,
+while GitLab offers more features in its free tier and is known for its emphasis on DevOps capabilities.
+
+ 1* Create a github account
+    email address:
+    useradd:
+    password:
+ 
+ 2* Create organisation in your github for the client project we add our team members in the organisation.
+ 
+ 3* Create Team project
+    Add members and collaborators
+	
+ 4* Assign roles to teams members using security best practices including least privileges
+ 
+ 5* Create repositories in our GitHub organisation for the client
+    https://github.com/MartinTechWorkhub/PrimeTimeTech.git public repository
+	https://github.com/MartinTechWorkhub/Developmentproject.git public repository
+	https://github.com/MartinTechWorkhub/ProductionforMartinTechWorkhub.git private repository
+ 
+ 6* Ensure that Git and other relevant IDEs are install by Developer
+	

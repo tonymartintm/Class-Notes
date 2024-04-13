@@ -1,0 +1,51 @@
+                  
+				     AWS CLOUD COMPUTING
+=================================================================
+Amazon Web Services (AWS) is one of the leading cloud computing platforms offerded by Amazon.
+it provides a wide range of cloud services, including computing power, storage, networking, databases, machine learning,analytics, and more. AWS allows businesses to access computing resources 
+on-demand without the need to invest in costly hardware infrasture.
+    Some key features and services of AWS include:
+	
+1. Compute Services:
+   *Amazon Elastic Compute Cloud (EC2) for scalable rituals servers.
+   *AWS Lambda for serverlss computing.
+2. Storage Services:
+   *Amazon Relational Database Services (S3)for scalable object storage.
+   *Amazon Elastic Block Store (EBS) for block-level storage volumes.
+3. Database Services:
+   *Amazon Relational Database Services (RDS) for managed relational databases.
+   *Amazon DynamoDB  for NoSQL databases.
+4. Networking:
+   *Amazon Virtual Private Cloud(VPC) for isolated virtual networks.
+   *Amazon Route 53 for scalable domain name system (DNS) web services.   
+5. Machine Learning and AI:
+   *Amazon SageMaker for building,training, and deploying machine learning models.
+   *Amazon Rekognition for image and video analysis.
+6. Analytics:
+   *Amazon Redshift for data warehousing.
+   *Amazon Athena for interactive query service.
+7. Management Tools: 
+   *AWS Identity and Access Management (IAM) for managing user access.
+   *AWS CloudFormation for intrastucture as code.
+   
+ AWS is know for its reliability, scalabity, and flexibility, making it popular choice for startups, enterprises,
+     and government agencies alike. It operates as pay-as-you go pricing model, allowing users to pay only for resources they consume
+	 without any long-term commitments.
+	 
+  Regions comprises of availability zone.
+
+* Availability zone means data center.   Consist of one or more discrete data centers, each with reduntant power, networking and connectivity and housed in seperate facilities.
+
+* Regions: Regions are seperate geographic areas, often containing multiple data centers, that are isolated from each other in teerms of network connectivityand failure domains.
+
+* Cloud : Refers to the network of servers, storage, databases, networking, software, and other computing resources delivered over the internet. It allows businesses to 
+          access and use these resources on-demand without the need for investing in and maintaining physical infrasture.
+        Cloud comprises of compute resources storage, network virtualization and ochestration and management tools and also comprises of security.
+ Compute Resorces includes virtualization server we are using which is the EC2 and it contains other compute resources that allows users to run application and perform a 
+ process task in cloud.
+
+  Storage is a cloud infrastructure  that provide scalable distribution storage solution or storing data data and files or object, which include data blok storage service.
+
+  AWS Local zones: AWS local zones are a type of infrastructure deployment that places select AWS services closer to your end user and workloads.  
+	 
+     

@@ -1,0 +1,42 @@
+
+How can we make sure the repository is in uniform with GitHub and terminal 
+
+Branches in Git are pointers to a specific commit in the repository's history. They allow you to work on different features or fixes without affecting the main codebase until you're ready to merge your changes.
+   *Creating a branch : you can create a new branch using the "git <branch-name> command. This command creates  a new branch but doesn't switch to it. to switch to a new branch you can use git "git checkout <branch-name>
+   or "git switch <branch-name>
+
+   *Working on a Branch: Once you're on a branch, any commits you make will be recorded on that branch. You can make changes, stage them, and commit them just like you would on the main branch (usually master or main)
+   
+   *Viewing Branches: You can see a list of branches in your repository using the git branch command. The branch you're currently on will be indicated with asterisk.
+   
+   *Switching Branches: you can switch between branches using the "git checkout <branch-name>" or "git switch <branch-name>" command this allows you to quickly move between different features or fixes.
+
+   *Merging Branches: Once you're done with the changes on a branch, you can merge those changes back into the main branch (often main or master) using "git merge <branch-name>" command. this combines the changes from 
+   the specified branch into the current branch.
+  
+   
+   *Deleting Branches: After merging a branch into the main branch, you can delete the feature branch using the "git branch -d <branch-name> command. this removes the branch from your local repository. If you want to delete 
+    a branch on the repository, you can use "git push origin --delete <branch-name>"
+	
+Branches are an essential part of git's workflow, allowing for parallel development and experimentation while keeping the main codebase stable. 
+ some git commands 
+git status : shows information such as which files have been modified.
+git log : Displays information such as commit, hashes, authors, dates and commit messages.
+git pull : The git pull command is used to fetch and integrate changes from a remote repository into your current branch ->  after running git pull, git will automatically fetch the changes from remote repository and merge
+           them into your current branch, if there is any changes.
+git fetch : The git fetch command is used to retrieve changes from a remote repository into your local repository. git fetch only downloads thge changes and stores them in your local repository without integrating them.
+           git fetch command is useful cfor keeping your local machine repository in sync with changes from the remote repository, while giving you control over when and how to integrate those changes into your workflow.
+git switch-> to switch branches 		   
+git log : -> git log command is used to display the commit history of a git repository
+
+to create a new branch, 
+   git branch master, this will create a branch called master
+git checkout: is used to switch between branches or restore files in your working directory to their state in a specific commit or branch.
+ after making changes to a file use git add name of file to confirm
+to delete a branch, use "git branch -d <branch-name>
+to rename a branch "git branch -m <existing branch-name> <new branch-name>
+  how to merge branches without polluting any work done in the branch.
+git merge stage master 
+creating another repository, after creating a file cd into the file and run command git init to initiate 
+git add . to stage all changes in the current directory and its subdirectories for the next next commit.
+git commit -m "comments" to commit staged changes.

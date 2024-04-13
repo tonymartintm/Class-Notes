@@ -1,0 +1,119 @@
+==================================================================================================:
+
+                            MARCH 06 2024
+
+==================================================================================================:
+       
+        Linux Networking Commands:
+
+dig := The "dig" command is a network administration tool for querying Domain Name System (DNS) servers. it is typically 
+       used to troubleshoot DNS-related issues, such as finding the IP address associated with a domain name, checking DNS records or diagnosing DNS resolution problems. 
+         to install "dig" sudo yum install -y bind-utils
+    for example, dig www.google.com this command will return the IP addresses associated with the domain "goodgle.com"   
+
+netstat -antp := this will help you check for a particular port, and also to see what port thats open and what port that is 
+                 not open. for example we are looking for port 22  
+                "netstat -antp | grep 22" will find it, you can use this to find other ports.
+
+nmap := nmap is a powerful network scanning tool used used to discover hosts and services on a computer network, thus 
+        providing information about open ports, services running on those ports, and other details about the network inventory, managing service upgrade schedules, and monitoring host or service uptime. 
+        running "nmap localhost" or "nmap" will scan the specified target, which could be your local machine (localhost) or 
+        another hostname or IP address. 
+           N/B make sure to have proper authorization before scanning any network, especially if its not your own.
+
+nslookup := The "nslookup" command is a network administration tool used for querying the Domain Name System (DNS) to obtain 
+            domain name or IP address mapping, or other DNS records.
+                  it allows us to look up DNS information such as IP addresses, domain names, and mail exchange (MX) 
+            records.
+          you can use it to troubleshoot DNS-related issues, verify DNS configurations, or gather information about a domain.
+           "nslookup IP address" to install nslookup "sudo yum install -y bind-utils"
+
+route := The "route" command is network administration tool used to view and manipulate the IP routing table in a computer's
+         operating system. It displays or modifies the computer's routing table, which contains informations about how packets should be forwarded to their destinations. 
+         To view routing table on your system, you can simply type: "route" this command will display the routing table, including the destination network, gateway, netmask, interface, and other relevant information.
+         To manipulate the routing table, you can use additional options with the "route" command such as adding, deleting, or modifying routes. for example, to add a new route, you can use: 
+         "route add <destination_network> <gateway>"" gateway is an IP address.
+         similarly, to delete a route, you can use:
+         "route delete <destination_network" 
+
+arp := the "arp" command is a network administration tool used to view and manipulate the Address Resolution Protocol (ARP)
+       cache in a computer's operating system.  ARP is used to map IP addresses to MAC addresses on a local network. 
+       To view the ARP cache on your system, you can simply type: "arp -a" this command will display the ARP cache, which contains mappings of IP addresses to MAC addresses.  
+
+tracert := the "tracert" command is a network diagnostic tool used to trace the route taken by packets from your computer to
+           a destination host or IP address. It shows the path that packets traverse accross the network, including the IP addresses of routers or hops along the way, and the time it takes for packets to reach each hop. 
+           to use "tracert" command "tracert <hostname> or <IP ADDRESS>"              
+
+mtr := MTR which stands for "MY TRACEROUTE" is a network diagnostic tool that combines the functionality of both the 
+      "traceroute" and "ping" commands.  MTR is particularly used for diagnosing network performance issues, as it provides ongoing feedback rather than just a snapshot in time. It can identify where network problems are occuring and whether they transient or pesistent. additionally MTR allows you to stop the trace and view detailed statistics at any time by pressing "q"   "mtr www.example.com" this command will start MTR and continuously display statistics about the route to the specified destination.
+
+
+        three ways of automating IT process or workload:
+
+1) GUI := Graphical User Interface are used in various domains. The versatality of GUIs makes them suitable for a wide range
+          of applications and user interfaces, catering to users with different levels of technical expertise and preferences.
+
+2) CLI := Command Line Interface is a text-based interface used to interact with computer systems and software by entering 
+          commands into a terminal or command prompt. some common use cases for CLI:
+         *System Administration: system administrators use CLI to manage and configure operating systems, servers and 
+          networks
+         *Software Development: Developers use CLI for various tasks related to software development, such as version 
+          control "e.g. Git", package management "npm,pip", compiling code, running tests, debugging, and automation of repetitive task using scripts. and etc   
+
+3)SCRIPTING := Scripting refers to the process of writing scripts, which are sequences of instructions or commands that 
+            are executed by a computer to perform a specific task or automate a series of tasks. Scripting languages are programming languages that are specifically designed for writing scripts. 
+
+    *scripts := a shell script is file  containing a series of commands         
+
+
+            SHELL :=
+
+Shell is a command-line interface used to interact with an operating system, automating tasks, and managing system resources
+     efficiently.  
+
+               
+                    LinuxOS                  windowOS             MacOS
+                    bash/sh                   PowerShell          bash/zshell 
+
+         Types of Shells: there are several types of shells, with the most common being:
+*Bash "Bourne Again SHell" : widely used on Unix-like systems, including linux and macOS.
+
+*Zsh "Z Shell" : A more modern shell with advanced features, often used as an alternative to Bash.
+
+*Fish "Friendly Interactive SHell" : known for its user-friendly features and syntax highlighting.
+
+*Csh "C Shell" : An older shell with C-like syntax, less commonly used nowadays. 
+
+     Naming conventions
+
+deploy.sh = shell script               "*.sh"
+text.txt  = text file                  "*.txt"
+app.sc    = shell-script               "*.sc"
+app.java  = java code                  "*.java"
+monitor.py= python code/script         "*.py"
+app.yaml  = playbook or manifesyt file "*.yml"  kubernetes and ansible use yml 
+main.tf   = terraform scripts/codes    "*.tf"
+
+          firstscrip.sh 
+The script should always start with sheband 
+
+#!/bin/bash
+echo "good evening everyone"
+whoami
+echo "Welcome to my world"
+echo "today is"
+date
+
+cat -n firstscript.sh 
+
+to check executable status on the file ./firstscript.sh
+and if it shows permission denied, to run the script the script needs executable permission to run to bypass this without adding the executable permission you can run the "bash firstscript.sh, and to make the file executable, the command is "chmod +x firstscript.sh"
+
+
+
+
+
+
+
+
+

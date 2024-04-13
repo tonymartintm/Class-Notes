@@ -1,0 +1,160 @@
+ 1* List some of the commonly used shell scripting commands ? 
+    I use "LS" command in shell scripting to list files
+    "cd" to change the current directory	
+	"pwd" to print the current working directory  
+	usually we have to find some files in a Linux machine so for that we use the "FIND" command
+	echo: prints text to the terminal or standard output
+	we usually debug the Linux Machine, using some debbuging commands like "top" to monitor process and resources, and "df -h" command to check to see the disk spaces  
+	"mv" to move or rename files or directories
+	cat: concatenates and displays the content of files.
+	
+2* Write a simple shell script to list all processes :
+name of script task.sh
+   #!/bin/bash
+ 
+echo "This script will list all process"
+
+set -x
+
+ps -ef
+
+:wq!
+
+assign execution access to the script with command chmod 777 task.sh
+
+and run the script with ./task.sh
+
+and if you are asked to print only the process id you can add this command to your script 
+ps -ef | awk -F" " {print $2}
+
+3* Write a Script to print only errors from a remote log :
+
+  we can achieve this using Curl pipe and grep
+  in this case "Curl" is retrieving the output or "Curl" is getting your entire log file
+  and "grep" will be getting only the section of the output we want, if you want error then it will only get the error lines for you
+  then pipe will combine the both commands to give us the output we are looking for.
+  
+4* Write a shell script to print numbers divided by 3 & 5 and not 15
+
+basically it wants you to print these numbers and exclude 15
+
+divisible by 3 = (if condition) 3,6,9,12   exclude 15
+
+divisible by 5 = (if condition) 5,10,      exclude 15
+
+and not divisible by 15. Not if
+
+1.. 100 (for loop)
+ 
+ ask the interviewer from what range do you want me to print, 1 and 100 or 1 and 1000 or do you want me to create a custom range of numbers 
+   say the interviewer say print the numbers divisible by 3 and 5 and not 15 from 1 to 100
+   
+name of script divisible.sh
+
+#!/bin/bash
+
+#######################
+# Author: Martins 
+# Date: 04/02/2024
+#######################   
+
+# divisible by 3, divisible by 5, not 385
+
+for i in {1..100}; do
+if ([ `expr $i % 3` == 0 ] || [ `expr $i % 5` == 0]) && [ `expr $i % 15` != 0 ];
+then
+        echo $i 
+fi;
+done
+
+
+:wq!		
+
+5* Write a script to print numbers of  "S" in Mississippi
+
+name of script numbers.sh
+
+#!/bin/bash
+
+#######################
+# Author: Martins
+# Date: 04/02/2024
+#######################
+
+x=mississipi
+
+grep -o "s" <<<"$x" | wc-l
+
+:wq!
+
+6* How will you debug the shell script
+  
+  set -x
+  
+  for any script if you just add set -x on your first line then your script will run on debug mode
+  
+  
+7* What is crontab in linux? Can you provide an exampe of usage ?  
+ 
+ crontab -> is a command-line utitility used to schedule tasks to run periodically at fixed times, dates or intervals. 
+            the name "cron" comes comes from the Greek word for time, "chronos"
+			
+common usage: for example to schedule a task to run everyday at 3 AM. 
+
+8* How to open a read-only file ?
+
+vim -r test.txt -> this will create the file on read only mode
+
+9*  What is the difference between soft and hard link ?
+   A soft link is simply a pointer to another file or directory, Deleting or moving the target file does not affect the soft link, but if the soft link itself is deleted, 
+   the target file or directory remains unaffected. create a soft link using "ln -s"
+   
+   A hard link is an additional name for the same file, it directly points to the inode of the original file, rather than its path. if the original file is deleted, the data 
+   and metadata are retained as long as there is at least one hard link remaining. create a hard Link using the "ln" command.
+
+   in summary, soft links are more like pointers to files or directories, while hard links are additional directory entries pointing directly to the same data on disk.   
+   
+10* What is the difference between break and continue statements ?
+   The break statement is used to immediately exit "break out of" the loop it is contained within. It is typically used to prematurely exit a loop based on certain conditions. 
+  for example  :-> for i in range(10):
+                       if i == 5:
+					       break
+					   print(i)
+					   
+   The Continue statement is used to skip the remaining code inside the loop for the current iteration and proceed to the next iteration.  It is typically used to skip specific iterations 
+   based on certain conditions, without exiting the loop entirely.
+     for example :-> for i in range(10):
+                         if i % 2 == 0:
+                             continue 
+                         print(i)
+ 
+   In summary, break is used to exit a loop entirely, while continue is used to skip the remaining code in current iteration and move to the netx iteration of te loop.  
+					   
+11*	What are some disadvantages of shell scripting ?
+   *Errors are frequent and costly, and a single error can alter the command.
+   *The execution speed is slow.
+   *Bugs or inadequacies in the langauge's syntax or implementation.
+   *Large, complex tasks aren't well suited to it.
+   *Contrary to other sripting languages,etc., it provides a minimal data structure.
+   *every time a shell command is executed, a new process is launched.
+   
+12* For Loop :->
+      * A for loop is used when you know the number of iterations in advance.
+	  
+	While loop :->
+      * A while loop is used when you want to execute a block of code as long as a condition is true.
+
+13* Is bash dynamically or statically typed and why ? 
+    * Bash is dynamically typed because variable types are determined at runtime based on context and values assigned to them .This dynamic typing behaviours provides flexibility
+      and simplicity in scripting but may also lead to potential runtime errors if not used carefully.	
+	  
+14* Explain about a network troubleshooting utitility?
+    *Traceroute records the IP addresses of the routers in the path based on the time execeeded messages received, thus tracing the route from source to the destination.  
+     Traceroute is a powerful tool for diagnosing network connectivity issues and understanding the path packets take through the network. By analyzing its output and interpreting the reults.
+    
+15* How will you sort list of names in a file ?
+    *To sort list of names in a file, you can use various methods depending on your preference and specific requiremnets of the task. but ill use the "sort" command to do this.
+	
+16* How will you manage logs of a system that generate huge log files everyday ?
+    *The efficient way is using "logrotate" you can efficiently manage your Linux machine logs or application logs
+					   
